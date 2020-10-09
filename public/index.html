@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="https://unpkg.com/vue@next"></script>
+		<script src="app.js" defer></script>
+
+		<meta charset="UTF-8" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css"
+			integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK"
+			crossorigin="anonymous"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				margin: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="header"><h1>Best Url-shortener in town</h1></header>
+		<main id="app">
+			<form @submit.prevent="createUrl">
+				<div class="form-group">
+					<label for="exampleInputEmail1">Url</label>
+					<input
+						type="text"
+						v-model="url"
+						class="form-control"
+						id="exampleInputEmail1"
+						aria-describedby="emailHelp"
+					/>
+					<small id="emailHelp" class="form-text text-muted">
+						Enter your url please...
+					</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Slug</label>
+					<input
+						type="text"
+						v-model="slug"
+						class="form-control"
+						id="exampleInputPassword1"
+					/>
+				</div>
+				<button type="submit" class="btn btn-primary mt-2">Submit</button>
+			</form>
+			<a :href="response" v-if="showAnchor">{{response}}</a>
+			<section v-if="response && !showAnchor">{{response}}</section>
+		</main>
+	</body>
+</html>
