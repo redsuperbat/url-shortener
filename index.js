@@ -72,7 +72,7 @@ app.use((error, req, res, next) => {
 	});
 });
 
-const port = 40404;
+const port = 80;
 app.listen(port, () => {
 	console.log(`Listening on port ${port}`);
 });
